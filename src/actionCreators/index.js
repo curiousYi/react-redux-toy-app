@@ -3,7 +3,7 @@ export const UPDATE_FORM_TEXT = 'UPDATE_FORM';
 export const updateForm = (id, form) => ({
     type: UPDATE_FORM_TEXT,
     id,
-    form
+    form: form
 });
 
 export const TOGGLE_FORM = 'TOGGLE_FORM';

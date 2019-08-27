@@ -4,30 +4,38 @@ class Form extends React.Component {
     constructor(props){
         super(props)
 
-        this.state = {
-            name: 'Yi',
-            email: 'changingtimes@gmail.com'
-        }
-
         this.updateEmail = this.updateEmail.bind(this);
         this.updateName = this.updateName.bind(this);
     }
 
     updateEmail(e) {
-        this.setState({
+        const { updateForms } = this.props;
+        let name;
+        if (updateForms && updateForms[this.props.id]){
+            name = updateForms[this.props.id].name;
+        }
+
+        this.props.updateForm(this.props.id, {
+            name: name,
             email: e.target.value
-        })
+        });
     }
 
     updateName(e) {
-        this.setState({
-            name: e.target.value
-        })
+        const { updateForms } = this.props;
+        let email;
+        if (updateForms && updateForms[this.props.id]){
+            email = updateForms[this.props.id].email;
+        }
+
+        this.props.updateForm(this.props.id, {
+            name: e.target.value,
+            email: email
+        });
     }
 
     render() {
-        const {formHeader} = this.props;
-        const {name, email} = this.state;
+        const {formHeader, name, email} = this.props;
 
        return (
             <div>

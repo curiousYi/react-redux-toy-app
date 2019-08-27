@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './Form';
+import Form from './FormConnectWithRedux';
 import ExtraSection from './ExtraSection';
 
 class Body extends React.Component {
@@ -13,6 +13,7 @@ class Body extends React.Component {
                </section>
                <ExtraSection>
                    <Form
+                      id="extra"
                      formHeader="test"
                    >
                    </Form>

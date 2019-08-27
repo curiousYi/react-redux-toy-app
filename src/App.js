@@ -10,6 +10,7 @@ function App() {
         <h1>App Header</h1>
         <Body
           formHeader={formHeader}
+          id="mainId"
         ></Body>
       </header>
     </div>
