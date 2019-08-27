@@ -5,12 +5,29 @@ class Form extends React.Component {
         super(props)
 
         this.state = {
-            name: 'Yi'
+            name: 'Yi',
+            email: 'changingtimes@gmail.com'
         }
+
+        this.updateEmail = this.updateEmail.bind(this);
+        this.updateName = this.updateName.bind(this);
     }
+
+    updateEmail(e) {
+        this.setState({
+            email: e.target.value
+        })
+    }
+
+    updateName(e) {
+        this.setState({
+            name: e.target.value
+        })
+    }
+
     render() {
         const {formHeader} = this.props;
-        const {name} = this.state;
+        const {name, email} = this.state;
 
        return (
             <div>
@@ -18,11 +35,11 @@ class Form extends React.Component {
                <form action="" method="get" className="form-example">
                     <div className="form-example">
                         <label htmlFor="name">Enter your name: </label>
-                        <input type="text" name="name" id="name" value={name} required/>
+                        <input type="text" name="name" id="name" value={name} onChange={this.updateName} required/>
                     </div>
                     <div className="form-example">
                         <label htmlFor="email">Enter your email: </label>
-                        <input type="email" name="email" id="email" required/>
+                        <input type="email" name="email" id="email" value={email} onChange={this.updateEmail} required/>
                     </div>
                     <div className="form-example">
                         <input type="submit" value="Subscribe!"/>
